@@ -92,15 +92,114 @@ input#username {
 }
 
 /* Search Box placeholder, currently displaying "Search Box goes here" */
-#search input{
+/*
+#search {
     display: block;
     margin: 70px auto;
-    width: 300px;
-    height:50px;
-    border: 4px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
+    width: 307px;
+    height: 53px;
+    border: 4px #2c3e50 solid; /* Cook Brothers Dark Blue Colour 
+    background-color: white;
+}
+
+#search input[type=text], #search input[type=image] {
+    display: inline-block;
+    height: 45px;
+}
+
+#search input[type=text] {
+    width: 250px;
     text-align: center;
     font-size: 18px;
+    border-right: 4px #2c3e50 solid;
+    border-radius: initial;
 }
+
+#search input[type=image] {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+*/
+/*******************/
+#dropDown {
+    position: relative;
+    width: 300px;
+    margin: 70px auto;
+    border: 4px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
+    background-color: white;
+    box-sizing: border-box;
+  }
+  /* Style the search field */
+  #dropDown input[type=text] {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    float: left;
+    width: 242px;
+    height: 100%;
+    border-radius: initial;
+    margin: 0;
+  }
+  /* Style the submit button */
+  #dropDown button {
+    float: left;
+    width: 50px;
+    height: 45px;
+    padding: 10px;
+    background: #2c3e50;
+    color: white;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #dropDown button:hover {
+    background: #2c3e50;
+  }
+  
+  #dropDown::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  #myUl {
+    list-style: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+    top: 100%;
+    border: 4px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
+    background-color: white;
+    font-size: 14px;
+    color: #2c3e50;
+    box-sizing: border-box;
+  }
+  
+  #myUl li {
+    padding: 5px;
+  
+  }
+
+  #myUl li:hover {
+    background-color: #eeeeee;
+  }
+
+  #myUl li a {
+      display: block;
+  }
+  #myUl li a:hover {
+    text-decoration: none;
+    color: #2c3e50;
+
+}
+/*******************/
+
 /* App list grid layout settings */
 ul.app-list {
     display:grid;
@@ -168,6 +267,20 @@ ul.app-list li a img{
         height: auto;
     }
     
+    #header-tabs {
+        display:initial;
+        margin:initial;
+        position: initial;
+    }
+
+    .page-tabs .nav-link a {
+        background: initial;
+        color: initial;
+        border-bottom: none;
+        display:inline;
+        float: left;
+    }
+
     ul.app-list{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* change down to 5 icons per row on tablet */
     }
@@ -201,7 +314,6 @@ ul.app-list li a img{
 }
 /*responsive settings for Mobile phone devices, max width 480px */
 @media only screen and (max-width:480px){
-
     /*input box restored to same width as password input on mobile phone, "cookbrothers.co.nz\" displayed above*/
     input#username {
         width: initial; 
@@ -223,6 +335,7 @@ ul.app-list li a img{
 
     ul.app-list{
         grid-template-columns: 1fr 1fr 1fr; /* change down to 3 icons per row  on mobile */
+        margin-bottom: 85px;
     }
 
     /*app descriptions displayed on mobile via touch on title to expand*/

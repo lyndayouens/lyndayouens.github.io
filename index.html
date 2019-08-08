@@ -10,6 +10,9 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" /> 
 		<link rel='shortcut icon' href='https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/42000102271/fav_icon/iUlpVNy18ico0Im1yvv-1ZRDIsjE_mR_-w.jpg' />
 
+        <!-- Font for search icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 		<!-- Cook Brothers Original Base stylesheet -->
 		<link href="https://assets4.freshdesk.com/assets/cdn/falcon_portal_utils-fc010ba819d2d80256daa9858dbbc765.css" media="screen" rel="stylesheet" type="text/css" />	
 		
@@ -72,10 +75,18 @@
         </nav>
 
         <!-- Search engine to be inserted here -->
+        <!--
         <div id="search">
             <input type="text" placeholder="Search Engine will go here">
+            <input type="image" src="FunctionIcons/searchIcon.png" alt="Search" width="40" height="40" />
         </div>
-
+    -->
+        <div id="dropDown"><!--p>Centered inside a form with max-width:</p>-->
+            <input type="text" placeholder="Search for an app..." id="search" autocomplete="off">
+            <button type="button" id="searchBtn"><i class="fa fa-search"></i></button>
+          
+          </div>
+          <div id="results"></div>
 
         <!-- div for each app: icon image, link, title with desktop hover description -->
         <!-- apps listed in order of frequency of use for user groups -->
@@ -180,6 +191,9 @@
         <footer>
 
         </footer>
+        <!-- javascript for search function -->
+        <script src="fuse.js"></script>
+        <script src="fuseSearchWithExtraData.js"></script>
         <!-- javascript for App Portal -->
         <script>
         function menuList(){
