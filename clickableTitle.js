@@ -5,7 +5,7 @@ var clickableTooltip = (function(){
     function showTooltip() {
         var title = this.querySelectorAll(".clickableTitle");
         if (!title.length) {
-            hideTooltips();
+            pub.hideTooltips();
             var title = document.createElement("span");
             title.innerText = this.getAttribute("title");
             title.classList.add("clickableTitle");
@@ -13,11 +13,11 @@ var clickableTooltip = (function(){
             title.style.top = rect.top + this.clientHeight + "px";
             this.appendChild(title);
         } else {
-            hideTooltips();
+            pub.hideTooltips();
         }
     }
 
-    function hideTooltips() {
+    pub.hideTooltips = function() {
         var title = document.querySelectorAll(".clickableTitle");
         var i;
         if (title.length) {
@@ -29,7 +29,7 @@ var clickableTooltip = (function(){
 
     pub.dismissAllTooltips = function(event) {
         if (!event.target.matches(".AppName")) {
-            hideTooltips();
+            pub.hideTooltips();
         }
     };
 
@@ -40,7 +40,7 @@ var clickableTooltip = (function(){
         for (i = 0; i < titleEls.length; i+=1) {
             titleEls[i].addEventListener("click", showTooltip);
         }
-        document.addEventListener("click", hideTooltips());
+        document.addEventListener("click", pub.hideTooltips());
     };
     return pub;
 })();

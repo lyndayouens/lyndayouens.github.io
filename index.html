@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<!-- Login Page to Custom App Portal, Created July 2019 Shift Project HTML Lynda Youens -->
+<!-- Custom Portal Created July 2019 Shift Project Lynda Youens -->
 <html>
 	<head>
-        <title> Sign into : Cook Brothers Portal </title>
+        <title>Cook Brothers App Portal </title>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="description" content="" />
@@ -10,8 +10,12 @@
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" /> 
 		<link rel='shortcut icon' href='https://s3.amazonaws.com/cdn.freshdesk.com/data/helpdesk/attachments/production/42000102271/fav_icon/iUlpVNy18ico0Im1yvv-1ZRDIsjE_mR_-w.jpg' />
 
+        <!-- Font for search icon -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 		<!-- Cook Brothers Original Base stylesheet -->
 		<link href="https://assets4.freshdesk.com/assets/cdn/falcon_portal_utils-fc010ba819d2d80256daa9858dbbc765.css" media="screen" rel="stylesheet" type="text/css" />	
+		
 		<!-- Cook Brothers Original Theme stylesheet -->
 		<link href="theme.css" media="screen" rel="stylesheet" type="text/css">
 
@@ -20,96 +24,183 @@
 
 		<!-- Google font url if present -->
 		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,italic,600,700,700italic' rel='stylesheet' type='text/css'>
-	</head>
-	<body>	
+    
+        <!-- javascript for mobile phone app descriptions-->
+        <script src="clickableTitle.js"></script>
+
+    </head>
+	<body>
         <header class="banner">
-            <div class="banner-wrapper page">
-                <div class="banner-title">
-                    <a href="http://helpdesk.cookbrothers.co.nz" class="portal-logo">
-                        <span class="portal-img"><i></i>
-                            <!-- Cook Brothers Logo -->
-                            <img src="FunctionIcons/CBC_LogoOutline.png" alt="Cook Brothers Logo" width="164" height="50" alt="Logo" />
-                        </span>
-                    </a>
-                    <h1 class="ellipsis heading">App Portal</h1>
-                </div>		
+            <!-- Cook Brothers Logo centered in Banner -->
+            <div class="banner-wrapper page center-header-img">
+                <img src="FunctionIcons/CBC_LogoAppPortal.png" alt="Cook Brothers Logo" width="500" height="87"/>
+            </div>
+
+            <!-- Menu and Log out buttons in Banner -->
+            <div>
+                <!-- Menu Button (left hand side of banner) -->
+                <div class="dropDownMenu">
+                    <!-- Menu burger icon -->
+                    <img class="menuIcon" onclick="menuList()" src="FunctionIcons/whiteMenuIcon.png" alt="Menu icon" width="30" height="25" />
+                    <span id="menuTitle">Profile Settings</span>
+                    <!-- Menu List Items shown onclick -->
+                    <div class="MenuItems" id="menuList">
+                        <!-- Display Profile Image, Username (placeholder for serverSide)  -->
+                        <span><img src="FunctionIcons/imagePlaceHolder.png" alt="Image Placeholder" width="40" height="40">UserFirst Surname</span>
+                        
+                        <!-- Change Password -->
+                        <a href="changePassword.html"><img src="FunctionIcons/changePasswordIcon.png" alt="Change Password Icon" width="25" height="25" >Change Password</a>
+                        
+                        <!-- Upload Profile Photo --> 
+                        <a href="uploadPhoto.html"><img src="FunctionIcons/changeProfilePicture.png" alt="Upload Photo Icon" width="25" height="28" >Upload Photo</a>
+                        
+                        <!-- Logout (placeholder for serverSide) at present back to Login screen--> 
+                        <a href="login.html"><img src="FunctionIcons/logoutIcon.png" alt="Logout Icon" width="25" height="25" >Logout</a> 
+                    </div>
+                </div>
+
+                <!-- Logout Button (right hand side of banner) -->
+                <form action="login.html" method="GET" style="display: inline;">
+                    <button type="submit" class="btn btn-logout"> Logout </button>
+                    <input type="image" id="headerLogoutIcon" src="FunctionIcons/whiteLogoutIcon.png" alt="Logout" width="30" height="30" />
+                </form>
             </div>
         </header>
+        
         <nav class="page-tabs">
             <div class="page no-padding ">
-                <!-- commented out Menu for Mobile, as only Helpdesk link in Menu, leave on interface as only one item-->
-                <!-- <a data-toggle-dom="#header-tabs" href="#" data-animated="true" class="mobile-icon-nav-menu show-in-mobile"></a>  -->
-                <div class="nav-link" id="header-tabs">
-                    <a href="https://helpdesk.cookbrothers.co.nz" class="">Helpdesk</a>
+                <!--  <a data-toggle-dom="#header-tabs" href="#" data-animated="true" class="mobile-icon-nav-menu show-in-mobile"></a>  -->
+                <div class="" id="portal-header-tab">
                 </div>
+                <div id="dropDown"><!--p>Centered inside a form with max-width:</p>-->
+                    <input type="text" placeholder="Search for an app..." id="search" autocomplete="off">
+                    <button type="button" id="searchBtn"><i class="fa fa-search"></i></button>
+                  
+                  </div>  
             </div>
         </nav>
-        <!-- Login form -->
-        <div class="page">
-            <div class="c-wrapper">		
-                <div id="login-page-wrapper">
-                    <section id="login-container" class="content-form rounded-6 main">
-                        <div class="login-form">
-                            <div id="login-form">
-                                <h2 class="heading">Login to the app portal</h2>
-                                <p>Enter your details below</p>
-                                <form action="portal.html" method="get">
-                                    <fieldset>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <!-- Enter your Username -->
-                                                <label>Username</label>
-                                                cookbrothers.co.nz\<input class="required special" id="username" name="username" autofocus="true"
-                                                    placeholder="Enter Username" size="30" type="text" value="" /> <!--username input -->
-                                            </div>
-                                        </div>
-                                        <div class="control-group">
-                                            <div class="controls">
-                                                <!-- Enter your Password -->
-                                                <label>Password</label>
-                                                <input class="special" id="password" name="password" 
-                                                    placeholder="Enter Password" size="30" type="password" autocomplete="off"> <!--password input -->
-                                            </div>
-                                        </div>
-                                        <!-- Remember me on computer Checkbox -->
-                                        <div class="control-group">			
-                                            <div class="controls" title="You can uncheck this option if you&#x27;re logging in from a shared device">
-                                                <label class="checkbox">
-                                                    <input checked="checked" id="remember_me" name="remember_me" type="checkbox" value="1" />
-                                                    Remember me on this computer
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <!-- Forgot password, requires javascript, commented out at present as not complete -->
-                                         <div class="control-group">			
-                                                <!-- <a href="" data-toggle-dom="#forgot-form, #login-form" id="forgot_password"></a> -->
-                                                <p>Forgot your password? Email: helpdesk@cookbrothers.co.nz</p>
-                                                <!--<div class="controls">
-                                                    <button type="submit" class="btn btn-primary btn-login"> Login </button>
-                                                </div>
-                                            </div> -->
 
-                                        <!-- Submit Button to Login to Portal-->    
-                                        <div class="control-group">			
-                                            <div class="controls">
-                                                
-                                                <button type="submit" class="btn btn-primary btn-login"> Login </button>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </form>
-                            </div>         
-                        </div>			
-                    </section>	
-                </div>
-            </div>
+        <!-- Search engine to be inserted here -->
+        <!--
+        <div id="search">
+            <input type="text" placeholder="Search Engine will go here">
+            <input type="image" src="FunctionIcons/searchIcon.png" alt="Search" width="40" height="40" />
         </div>
+    -->
+    <!--p>Centered inside a form with max-width:</p>-->
+        <!-- <div id="dropDown">
+            <input type="text" placeholder="Search for an app..." id="search" autocomplete="off">
+            <button type="button" id="searchBtn"><i class="fa fa-search"></i></button>
+          
+          </div> -->
+          <div id="results"></div>
+
+        <!-- div for each app: icon image, link, title with desktop hover description -->
+        <!-- apps listed in order of frequency of use for user groups -->
+        <section>
+            <ul class="app-list">
+                
+                <!-- 1. Lentune Purchase Orders -->
+                <li title="Create purchase orders and approve invoices. Get approval to issue a purchase order. ">
+                    <a target="_blank" href="https://cookbrothers.lentune.co.nz"><img src="AppIconImages/lentuneIcon.png" alt="Lentune Icon" width="40" height="40"></a>
+                <p class="AppName">Invoices / PO Lentune</p>
+                <!-- <p class="SubHeading">Lentune</p> -->
+                </li>
+
+                <!-- 2. Timesheets -->
+                <li title="Timesheets app for logging hours worked">
+                    <a target="_blank" href="http://timesheets.cookbrothers.co.nz/web_admin/index.php"><img src="AppIconImages/timesheetIcon.png" alt="Timesheet Icon" width="40" height="40"></a>
+                    <p class="AppName">Timesheets</p>
+                </li>
+
+                <!-- 3. Procore, Construction App -->
+                <li title="Job management app. Find drawings and specifications here.">
+                    <a target="_blank" href="https://app.procore.com/5391/company/home/list"><img src="AppIconImages/ProcoreIcon.png" alt="Procore Icon" width="40" height="40"></a>
+                    <p class="AppName">Procore Construction</p>
+                    <!-- <p class="SubHeading">Construction App</p> -->
+                </li>
+
+                <!-- 4. Hilti ON!Track, Asset Management -->
+                <li title="Asset management system, used for who has what equipment and where it is supposed to be.">
+                    <a target="_blank" href="https://ontrack.hilti.com/ontrack/app.html#/dashboard"><img src="AppIconImages/HiltiONTrackIcon.png" alt="Hilti ON!Track Icon" width="38" height="38"></a>
+                    <p class="AppName">Hilti Asset Management</p>
+                    <!-- <p class="SubHeading">ON!Track</p> -->
+                </li>
+
+                <!-- 5. Cook Bros Helpdesk -->
+                <li title="Helpdesk for submitting tickets for any problems you may have including IT, Accounts, HR.
+                You can also submit a ticket by emailing helpdesk@cookbrothers.co.nz">
+                    <a target="_blank" href="http://helpdesk.cookbrothers.co.nz/support/home"><img src="AppIconImages/helpIcon.png" alt="Helpdesk Icon" width="40" height="40"></a>
+                    <p class="AppName">Helpdesk</p>
+                </li>
+
+                <!-- 6. Health and Safety, BWare Safety Manager -->
+                <li title="Keep up with your training and lodge any incidents or hazards you may have encountered on site.(Bware)">
+                    <a target="_blank" href="https://www.bware.co.nz/safetymanager-app/management/startuppage"><img src="AppIconImages/healthSafetyIcon.png" alt="Health and Safety Icon" width="35" height="35"></a>
+                    <p class="AppName">Health & Safety</p>
+                    <!-- <p class="SubHeading">BWare Safety Manager</p> -->
+                </li>
+
+                <!-- 7. Security Cameras -->
+                <li title="Our portal for security cameras. You can go here to see security footage, live streams and time-lapses from the sites you are involved with. ">
+                    <a target="_blank" href="http://cameracook.synology.me:5000/cam/"><img src="AppIconImages/securityIcon.png" alt="Security Icon" width="30" height="40"></a>
+                    <p class="AppName">Security Cameras</p>
+                </li>
+
+                <!-- 8. Site Sign-In, WhosOn Location -->
+                <li title="WhosOn Location is an app we use for site sign-ins.  ">
+                    <a target="_blank" href="https://login.whosonlocation.com/login"><img src="AppIconImages/locationIcon.png" alt="Whos On Location Icon" width="30" height="40"></a>
+                    <p class="AppName">Site Sign-In</p>
+                    <!-- <p class="SubHeading">WhosOn Location</p> -->
+                </li>
+
+                <!-- 9. Video Conferencing, Lifesize -->
+                <li title="Our video conferencing software. Mobile and desktop apps available. As well as ability to just dial into a call with your phone.(Lifesize)">
+                    <a target="_blank" href="https://login.lifesizecloud.com/ls/login/"><img src="AppIconImages/videoIcon.png" alt="Video Conferencing Icon" width="40" height="28"></a>
+                    <p class="AppName">Video Conferencing</p>
+                    <!-- <p class="SubHeading">Lifesize</p> -->
+                </li>
+
+                <!-- 10. Induction Training, Bracken Learning -->
+                <li title="Induction training for new starters / contractors (Bracken)">
+                    <a target="_blank" href="https://cookbrothers.brackenlearning.com/"><img src="AppIconImages/orientationIcon.png" alt="Induction Training Icon" width="40" height="40"></a>
+                    <p class="AppName">Induction Training</p>
+                    <!-- <p class="SubHeading">Bracken Learning</p> -->
+                </li>
+                
+                <!-- 11. Microsoft Office -->
+                <li title="Download Microsoft Office here. Includes Microsoft Projects.">
+                    <a target="_blank" href="http://portal.office.com"><img src="AppIconImages/msOfficeIcon.png" alt="Microsoft Office Icon" width="40" height="40"></a>
+                    <p class="AppName">Microsoft Office</p>
+                </li>
+
+                <!-- 12. File Sharing, Company Drive -->
+                <li title="Company Drive, for file sharing">
+                        <a target="_blank" href="http://drive.cookbrothers.co.nz"><img src="AppIconImages/openFolderIcon.png" alt="File Sharing Icon" width="45" height="55"></a>
+                        <p class="AppName">Company Drive</p>
+                    </li>
+
+                <!-- 13. Adobe Apps -->
+                <li title="Where to download your Adobe Apps (either Acrobat DC Pro, or the Full Creative Suite)">
+                    <a target="_blank" href="https://account.adobe.com/"><img src="AppIconImages/AdobeIcon.png" alt="Adobe Icon" width="35" height="35"></a>
+                    <p class="AppName">Adobe Apps</p>
+                </li>
+
+                <!-- 14. Email, Online Access -->
+                <li title="Email online access/ email web service">
+                    <a target="_blank" href="http://mail.cookbrothers.co.nz"><img src="AppIconImages/emailIcon.png" alt="Email Icon" width="40" height="30"></a>
+                    <p class="AppName">Email</p>
+                    <!-- <p class="SubHeading">Online Access</p> -->
+                </li>
+                
+            </ul>
+        </section>
         <!-- Footer with link to Helpdesk and Cookie Policy -->
         <footer class="footer rounded-6">
             <nav class="footer-links page no-padding">
                 <a href="https://helpdesk.cookbrothers.co.nz" class="">Helpdesk</a>
                 <a href="#portal-cookie-info" rel="freshdialog" data-lazy-load="true" class="cookie-link"
-                data-width="450px" title="Why we love Cookies" data-template-footer="">
+                    data-width="450px" title="Why we love Cookies" data-template-footer="">
                 Cookie policy</a> 
                 <div id="portal-cookie-info" class="hide">
                     <textarea>
@@ -121,8 +212,40 @@
             </nav>
         </footer>
         <div class="copyright">
-            <a href="https://freshdesk.com/?utm_source=portal&utm_medium=reflink&utm_campaign=portal_reflink" target="_blank"> Help Desk Software </a>
-            by Freshdesk
-        </div> 
+                <a href=https://freshdesk.com/?utm_source=portal&utm_medium=reflink&utm_campaign=portal_reflink target="_blank"> Help Desk Software </a>
+                by Freshdesk
+        </div>
+        <!-- javascript for search function -->
+        <script src="fuse.js"></script>
+        <script src="fuseSearchWithExtraData.js"></script>
+        <!-- javascript for App Portal -->
+        <script>
+        function menuList(){
+            document.getElementById("menuList").classList.toggle("show");
+        }
+        /* Hide titles descriptions on scroll (moving off)  */
+        window.onscroll=function(){
+            clickableTooltip.hideTooltips();   
+        };
+        /* for clicking off, closing menu list, search and app descriptions */
+        window.onclick = function(event) {
+            if (!event.target.matches(".menuIcon")) {
+                document.getElementById("menuList").classList.remove("show");
+            }
+            if (!event.target.matches(".AppName")) {
+                clickableTooltip.hideTooltips();
+            }
+            if (!event.target.matches(".dropDown")) {
+                var el = document.getElementById("myUl");
+                if (el != null) {
+                    el.parentNode.removeChild(el);
+                }
+                var searchBox = document.getElementById("search");
+                if (searchBox != null) {
+                    searchBox.value = "";
+                }
+            }
+        };
+        </script>
     </body>
 </html>

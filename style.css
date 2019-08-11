@@ -8,13 +8,9 @@
 label {
     font-weight: bold;
 }
-
-/* Login form input box, shortened to accomodate cookbrothers.co.nz\  */
-input#username {
-    width: 283px;
-}
-
+/**********************/
 /* Webpage settings*/
+
 .main {
     width: 100%;
     border-bottom-right-radius: 6px;
@@ -28,10 +24,13 @@ input#username {
 
 /* Settings for top Banner */
 .banner {
-    padding-top: 50px;
+    padding-top: 20px;
+    padding-bottom: 0;
 }
 .center-header-img {
     text-align: center;
+    margin: 0 auto;
+    padding: 0;
 }
 
 /* Menu Button and List settings, Left hand side */
@@ -71,6 +70,14 @@ input#username {
 .MenuItems img{
     margin-right: 15px;
 }
+
+#menuTitle {
+    font-size: 18px;
+    margin-left: 5px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
 .show{
     display: block;
 }
@@ -81,6 +88,12 @@ input#username {
     color: #2c3e50; /* Cook Brothers Dark Blue Colour */
     float: right;
     margin: 0px 40px 10px 0px;
+}
+
+#headerLogoutIcon {
+    float:right;
+    margin-right: 5px;
+    width: 30px;
 }
 
 /* "App Portal" Heading */
@@ -123,15 +136,18 @@ input#username {
 }
 */
 /*******************/
+/* Updated Search settings */
 #dropDown {
     position: relative;
     width: 300px;
-    margin: 70px auto;
+    margin: 7px auto;
     border: 4px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
     background-color: white;
     box-sizing: border-box;
+    height:40px;
+   
   }
-  /* Style the search field */
+  /* Style for the search field */
   #dropDown input[type=text] {
     padding: 10px;
     font-size: 18px;
@@ -141,17 +157,17 @@ input#username {
     width: 242px;
     height: 100%;
     border-radius: initial;
-    margin: 0;
+    margin: 0;   
   }
-  /* Style the submit button */
+  /* Style for the search submit button */
   #dropDown button {
     float: right;
-    width: 50px;
-    height: 45px;
-    padding: 10px;
+    width: 40px;
+    height: 33px;
+    padding: 0px;
     background: #2c3e50;
     color: white;
-    font-size: 17px;
+    font-size: 14px;
     border: none;
     cursor: pointer;
   }
@@ -171,14 +187,14 @@ input#username {
     position: absolute;
     margin: 0;
     padding: 0;
-    left: 0;
-    right: 0;
+    left: -4px;
     top: 100%;
     border: 4px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
     background-color: white;
     font-size: 14px;
     color: #2c3e50;
     box-sizing: border-box;
+    width: 300px;
   }
   
   #myUl li {
@@ -209,8 +225,10 @@ ul.app-list {
     width: 85%;
     max-width: 960px;
     margin: auto;
+    margin-bottom: 60px;
+    margin-top: 30px;
 }
-/* App list icon display settings, on white circles with dark blue border */
+/* For Desktop: App list icon display settings, on white circles with dark blue border */
 ul.app-list li a{
     display: block;
     text-align: center;
@@ -229,7 +247,7 @@ ul.app-list li a img{
 }
 /* App title settings */
 .AppName {
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     margin: 0px;
     padding-left: 10px;
@@ -245,25 +263,58 @@ ul.app-list li a img{
 } */
 
 /* Don't show clicked titles with app descriptions on desktop screens */
-.clickableTitle {
+/* .clickableTitle {
     display: none;
+} */
+.AppName::after {
+    background-image: url("questionMark.png"); /* image for description help */
+    height: 16px;
+    width: 16px;
+    background-size: 16px 16px;
+    margin: 2px auto 0px auto;
+    white-space: nowrap;
+    display: block;
+    content: "";
 }
 
-/* media queries for responsiveness settings */
+ /*app descriptions displayed on tablet via touch on title to expand*/
+ .clickableTitle {
+    position: fixed;
+    top: 0px;
+    left: 100px;
+    right: 100px;
+    background: white;
+    padding: 5px;
+    height: initial;
+    width: initial;
+    border-radius: 3px;
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
+    border: 1px solid #ddd;
+    z-index: 1000;
+    color: #2c3e50;
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
+    border: 1px solid #2c3e50;
+    font-size: 16px;
+    display: initial;
+}
 
-/*responsive settings for Tablet size devices, max width 768px */
+/*************************/
+/* Media Queries for Responsiveness settings, desktop, tablet, mobile phone */
+
+/*Responsive settings for Tablet size devices, max width 768px */
 @media screen and (max-width: 768px){
     .banner {
         text-align: left !important;
-        padding-top: 25px;
+        padding-top: 15px;
     }
     
     .center-header-img {
         display: block !important;
+        max-height: 75px;
     }
 
     .center-header-img img{ 
-        width: 280px;
+        width: 330px;
         height: auto;
     }
     
@@ -278,70 +329,86 @@ ul.app-list li a img{
         color: initial;
         border-bottom: none;
         display:inline;
-        float: left;
+        float: left; /* required to override existing theme.css */
     }
 
     ul.app-list{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* change down to 5 icons per row on tablet */
     }
 
-    /*app descriptions displayed on tablet via touch on title to expand*/
-    .clickableTitle {
-        position: fixed;
-        top: 0px;
-        left: 100px;
-        right: 100px;
-        background: white;
-        padding: 5px;
-        height: initial;
-        width: initial;
-        border-radius: 3px;
-        box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
-        border: 1px solid #ddd;
-        z-index: 1000;
-        color: #2c3e50;
-        box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
-        border: 1px solid #2c3e50;
-        font-size: 16px;
-        display: initial;
-    }
-
-    .AppName::before {
-        content: url("expand-button.png");
-        margin-right: 5px;
-        white-space: nowrap;
-    }
+    
 }
-/*responsive settings for Mobile phone devices, max width 480px */
+/************************/
+/*Responsive settings for Mobile phone devices, max width 480px */
 @media only screen and (max-width:480px){
-    /*input box restored to same width as password input on mobile phone, "cookbrothers.co.nz\" displayed above*/
-    input#username {
-        width: initial; 
+    #dropDown {
+        margin: 10px auto;
     }
-   
     .dropDownMenu {
         margin-bottom: 10px;
+        margin-left: 5px;
+        margin-top: 0px;
     }
-    .btn-logout{
+    .btn-logout, #menuTitle{
         display: none;
     }
+    .banner {
+        padding-top: 2px;
+    }
     .banner .banner-wrapper {
-        height: 40px;
+        height: 36px;
     }
     .center-header-img img{ 
-        width: 164px;
+        margin-top: 10px;
+        width: 250px;
         height: auto;
     }
+    /* "App Portal" Heading */
+    .page-tabs div {
+        padding:0px;
+    }
+    #portal-header-tab {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: #2c3e50; /* Cook Brothers Dark Blue Colour */
+        vertical-align: middle;
+    } 
 
+    /* Display layout of Apps */
     ul.app-list{
         grid-template-columns: 1fr 1fr 1fr; /* change down to 3 icons per row  on mobile */
-        margin-bottom: 85px;
-    }
-
+        margin-top: 20px;
+        }
     /*app descriptions displayed on mobile via touch on title to expand*/
     .clickableTitle {
         left: 10px;
         right: 10px;
+        }
+    /* App list icon display settings, on white circles with dark blue border */
+    ul.app-list li a{
+        display: block;
+        text-align: center;
+        background-color: white;
+        width: 68px;
+        height: 68px;
+        line-height: 60px;
+        border-radius: 34px;
+        border: 3px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
+        margin: 30px auto 12px auto;
+        padding: 0;
+    }
+    /* Centering icon images onto circles */
+    ul.app-list li a img{
+        vertical-align: middle;
+    }
+    /* App title settings */
+    .AppName {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+
     }
 }
-

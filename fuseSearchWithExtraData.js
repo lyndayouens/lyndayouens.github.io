@@ -168,6 +168,7 @@ var FuseSearch = (function () {
         if (el != null) {
             el.parentNode.removeChild(el);
         }
+        document.getElementById("results").innerHTML = "";
     }
 
 
@@ -219,7 +220,7 @@ var FuseSearch = (function () {
         var fuse = new Fuse(list, options); // "list" is the item array from the data above and the options are from the object above.  These are fed into the fuse search
         var result = fuse.search(searchInput.value); //The results from the fuse search outputs are stored in the result array
 
-        document.getElementById("results").innerHTML = ""; //???????????
+         //???????????
         clear();                                            //??????????
 
         /*
@@ -248,6 +249,7 @@ var FuseSearch = (function () {
                 a.href = currentItem.url;                   //Gets the url from the result currentitem object's url property and stores it as the reference for the a variable
                 a.innerText = currentItem.name;             //Writes the name from the current item property and shows this as the text for the link in the search result list
                 a.setAttribute("target", "_blank");         //This opens the anchor referred to in a new browser window
+                a.onclick = clear;
                 li.appendChild(a);                          //Appends the link to the list element
                 ul.appendChild(li);                         //Appends the list element to the unordered list
             });
