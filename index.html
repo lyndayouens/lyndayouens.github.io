@@ -235,7 +235,7 @@
             if (!event.target.matches(".AppName")) {
                 clickableTooltip.hideTooltips();
             }
-            if (!event.target.matches(".dropDown")) {
+            if (!event.target.matches(".fa.fa-search") && !event.target.matches("#searchBtn")) {
                 var el = document.getElementById("myUl");
                 if (el != null) {
                     el.parentNode.removeChild(el);

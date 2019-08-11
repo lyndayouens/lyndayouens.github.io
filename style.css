@@ -154,7 +154,7 @@ label {
     text-align: center;
     border: none;
     float: left;
-    width: 242px;
+    width: 252px;
     height: 100%;
     border-radius: initial;
     margin: 0;   
@@ -195,6 +195,7 @@ label {
     color: #2c3e50;
     box-sizing: border-box;
     width: 300px;
+    text-align: left;
   }
   
   #myUl li {
@@ -252,6 +253,7 @@ ul.app-list li a img{
     margin: 0px;
     padding-left: 10px;
     padding-right: 10px;
+    position: relative;
 }
 /* App supporting text, subheading description if applicable */
 /*.SubHeading {
@@ -279,10 +281,9 @@ ul.app-list li a img{
 
  /*app descriptions displayed on tablet via touch on title to expand*/
  .clickableTitle {
-    position: fixed;
+    position: absolute;
     top: 0px;
-    left: 100px;
-    right: 100px;
+    max-width: 220px;
     background: white;
     padding: 5px;
     height: initial;
@@ -296,6 +297,10 @@ ul.app-list li a img{
     border: 1px solid #2c3e50;
     font-size: 16px;
     display: initial;
+}
+
+.selectedClickableTitle {
+    text-decoration: underline;
 }
 
 /*************************/
@@ -335,7 +340,28 @@ ul.app-list li a img{
     ul.app-list{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* change down to 5 icons per row on tablet */
     }
-
+    .AppName {
+        position: initial;
+    }
+    .clickableTitle {
+        position: fixed;
+        top: 0px;
+        left: 100px;
+        right: 100px;
+        background: white;
+        padding: 5px;
+        height: initial;
+        width: initial;
+        border-radius: 3px;
+        box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
+        border: 1px solid #ddd;
+        z-index: 1000;
+        color: #2c3e50;
+        box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
+        border: 1px solid #2c3e50;
+        font-size: 16px;
+        max-width: unset;
+    }
     
 }
 /************************/

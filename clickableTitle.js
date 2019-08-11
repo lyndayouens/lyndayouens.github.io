@@ -12,6 +12,7 @@ var clickableTooltip = (function(){
             var rect = this.getBoundingClientRect();
             title.style.top = rect.top + this.clientHeight + "px";
             this.appendChild(title);
+            this.classList.add("selectedClickableTitle");
         } else {
             pub.hideTooltips();
         }
@@ -23,6 +24,13 @@ var clickableTooltip = (function(){
         if (title.length) {
             for (i = 0; i < title.length; i += 1) {
                 title[i].parentNode.removeChild(title[i]);
+            }
+        }
+        var label = document.querySelectorAll(".selectedClickableTitle");
+        var i;
+        if (label.length) {
+            for (i = 0; i < label.length; i += 1) {
+                label[i].classList.remove("selectedClickableTitle");
             }
         }
     }
