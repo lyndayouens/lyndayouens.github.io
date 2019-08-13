@@ -1,0 +1,486 @@
+/*Custom Style settings for App Portal, Created July 2019, Shift Project Lynda Youens*/
+
+/* Error message display for incorrect login, change password or upload photo form input/s*/
+.errorMessage {
+    color: red;
+}
+/* Login form labels*/
+label {
+    font-weight: bold;
+}
+/**********************/
+/* Webpage settings*/
+main {
+    position: relative;
+    min-height: 100vh;
+}
+#content {
+    padding-bottom: 5rem;
+}
+footer {
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 5rem;
+}
+
+.main {
+    width: 100%;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.login-form input.special {
+    max-width: 400px;
+}
+
+
+/* Settings for top Banner on all pages*/
+.banner {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.banner .dropDownMenu{
+    float:left;
+    vertical-align: middle;
+}
+.center-header-img {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Settings for Portal Banner main page */
+.portalBanner {
+    position: absolute;
+    width: 100%;
+    top: 40px;
+}
+
+
+/* Menu Button and List settings, Left hand side */
+.menuIcon {
+    cursor: pointer;
+}
+.dropDownMenu {
+    position: relative;
+    display: inline-block; 
+    margin-left: 40px;
+    margin-top: 5px;
+    z-index: 100;
+    cursor: pointer;
+}
+.MenuItems {
+    display: none;
+    position: absolute;
+    background-color: white;
+    width: 200px;
+    box-shadow: 0px 8px 16px 8px rgba(0,0,0,0.2);
+}
+.MenuItems a {
+    display: block;
+    text-decoration: none;
+    padding: 12px 16px;
+    color: #2c3e50;
+}
+.MenuItems a:hover {
+    background-color:lightgrey;
+    color: #2c3e50;
+}
+.MenuItems span {
+    display: block;
+    text-decoration: none;
+    padding: 12px 16px;
+    background-color: #2c3e50;
+    color: white;
+}
+.MenuItems img{
+    margin-right: 15px;
+}
+
+#menuTitle {
+    font-size: 18px;
+    margin-left: 5px;
+    line-height: 24px;
+    vertical-align: middle;
+}
+
+.show{
+    display: block;
+}
+
+/* Log out Button, Right hand side */
+.btn-logout {
+    background-color: white;
+    color: #2c3e50; /* Cook Brothers Dark Blue Colour */
+    float: right;
+    margin: 0px 40px 10px 0px;
+}
+
+#headerLogoutIcon {
+    float:right;
+    margin-right: 5px;
+    width: 30px;
+}
+
+/* "App Portal" Heading */
+#portal-header-tab {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: #2c3e50; /* Cook Brothers Dark Blue Colour */
+}
+
+/* Search Box placeholder, currently displaying "Search Box goes here" */
+/*
+#search {
+    display: block;
+    margin: 70px auto;
+    width: 307px;
+    height: 53px;
+    border: 4px #2c3e50 solid; /* Cook Brothers Dark Blue Colour 
+    background-color: white;
+}
+
+#search input[type=text], #search input[type=image] {
+    display: inline-block;
+    height: 45px;
+}
+
+#search input[type=text] {
+    width: 250px;
+    text-align: center;
+    font-size: 18px;
+    border-right: 4px #2c3e50 solid;
+    border-radius: initial;
+}
+
+#search input[type=image] {
+    width: 35px;
+    height: 35px;
+    margin-bottom: 8px;
+    margin-left: 4px;
+}
+*/
+/*******************/
+/* Updated Search settings */
+#dropDown {
+    position: relative;
+    width: 300px;
+    margin: 7px auto;
+    border: 4px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
+    background-color: white;
+    box-sizing: border-box;
+    height:40px;
+    z-index: 100;
+   
+  }
+  /* Style for the search field */
+  #dropDown input[type=text] {
+    padding: 10px;
+    font-size: 18px;
+    text-align: center;
+    border: none;
+    float: left;
+    width: 252px;
+    height: 100%;
+    border-radius: initial;
+    margin: 0;   
+  }
+  /* Style for the search submit button */
+  #dropDown button {
+    float: right;
+    width: 40px;
+    height: 33px;
+    padding: 0px;
+    background: #2c3e50;
+    color: white;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  #dropDown button:hover {
+    background: #2c3e50;
+  }
+  
+  #dropDown::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  #myUl {
+    list-style: none;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    left: -4px;
+    top: 100%;
+    border: 4px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
+    background-color: white;
+    font-size: 14px;
+    color: #2c3e50;
+    box-sizing: border-box;
+    width: 300px;
+    text-align: left;
+  }
+  
+  #myUl li {
+    padding: 5px;
+  
+  }
+
+  #myUl li:hover {
+    background-color: #eeeeee;
+  }
+
+  #myUl li a {
+      display: block;
+  }
+  #myUl li a:hover {
+    text-decoration: none;
+    color: #2c3e50;
+
+}
+/*******************/
+
+/* App list grid layout settings */
+ul.app-list {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; /* displaying 7 icons in a row on desktop */
+    text-align: center;
+    list-style: none;
+    width: 85%;
+    max-width: 960px;
+    margin: auto;
+    margin-bottom: 60px;
+    margin-top: 30px;
+}
+/* For Desktop: App list icon display settings, on white circles with dark blue border */
+ul.app-list li a{
+    display: block;
+    text-align: center;
+    background-color: white;
+    width: 68px;
+    height: 68px;
+    line-height: 60px;
+    border-radius: 34px;
+    border: 3px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
+    margin: 30px auto 12px auto;
+    padding: 0;
+}
+/* Centering icon images onto circles */
+ul.app-list li a img{
+    vertical-align: middle;
+}
+/* App title settings */
+.AppName {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0px;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    min-height: 44px;
+}
+/*Question Mark icon for displaying app descriptions*/
+.questionIcon {
+    display: block;
+    margin: auto;
+    margin-top: 2px;
+}
+
+
+/* Don't show clicked titles with app descriptions on desktop screens */
+/* .clickableTitle {
+    display: none;
+} */
+/*
+.AppName::after {
+    background-image: url("questionMark.png");
+    height: 16px;
+    width: 16px;
+    background-size: 16px 16px;
+    margin: 2px auto 0px auto;
+    white-space: nowrap;
+    display: block;
+    content: "";
+}
+*/
+ /*app descriptions displayed on tablet via touch on title to expand*/
+ .clickableTitle {
+    position: absolute;
+    top: 0px;
+    max-width: 220px;
+    background: white;
+    padding: 5px;
+    height: initial;
+    width: initial;
+    border-radius: 3px;
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
+    border: 1px solid #ddd;
+    z-index: 1000;
+    color: #2c3e50;
+    box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
+    border: 1px solid #2c3e50;
+    font-size: 16px;
+    display: initial;
+}
+
+.selectedClickableTitle {
+    text-decoration: underline;
+}
+
+/*************************/
+/* Media Queries for Responsiveness settings, desktop, tablet, mobile phone */
+
+@media only screen and (max-width:960px) {
+    .btn-logout, #menuTitle{
+        display: none;
+    }
+    .btn-logout {
+        margin-right: 5px;
+    }
+    .dropDownMenu {
+        margin-left: 5px;
+    }
+}
+
+/*Responsive settings for Tablet size devices, max width 768px */
+@media screen and (max-width: 768px){
+    .banner {
+        text-align: left !important;
+        padding-top: 15px;
+        padding-bottom: 0px;
+    }
+    .portalBanner {
+        top: 30px;
+    }
+    .center-header-img {
+        display: block !important;
+        max-height: 75px;
+    }
+
+    .center-header-img img{ 
+        width: 330px;
+        height: auto;
+    }
+    
+    #header-tabs {
+        display:initial;
+        margin:initial;
+        position: initial;
+    }
+
+    .page-tabs .nav-link a {
+        background: initial;
+        color: initial;
+        border-bottom: none;
+        display:inline;
+        float: left; /* required to override existing theme.css */
+    }
+    .dropDownMenu {
+        margin-left: 5px;
+    }
+    ul.app-list{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* change down to 5 icons per row on tablet */
+    }
+    .AppName {
+        position: initial;
+    }
+    .clickableTitle {
+        position: fixed;
+        top: 0px;
+        left: 100px;
+        right: 100px;
+        background: white;
+        padding: 5px;
+        height: initial;
+        width: initial;
+        border-radius: 3px;
+        box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
+        border: 1px solid #ddd;
+        z-index: 1000;
+        color: #2c3e50;
+        box-shadow: 2px 4px 5px rgba(0,0,0,0.3);
+        border: 1px solid #2c3e50;
+        font-size: 16px;
+        max-width: unset;
+    }
+    
+}
+/************************/
+/*Responsive settings for Mobile phone devices, max width 480px */
+@media only screen and (max-width:480px){
+    #dropDown {
+        margin: 10px auto;
+    }
+    .dropDownMenu {
+        margin-bottom: 10px;
+        margin-left: 5px;
+        margin-top: 3px;
+    }
+    .portalBanner {
+        top: 20px;
+    }
+    .banner {
+        padding-top: 2px;
+    }
+    .banner .banner-wrapper {
+        height: 60px;
+    }
+    .center-header-img img{ 
+        margin-top: 10px;
+        width: 250px;
+        height: auto;
+    }
+    /* "App Portal" Heading */
+    .page-tabs div {
+        padding:0px;
+    }
+    #portal-header-tab {
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+        color: #2c3e50; /* Cook Brothers Dark Blue Colour */
+        vertical-align: middle;
+    } 
+
+    /* Display layout of Apps */
+    ul.app-list{
+        grid-template-columns: 1fr 1fr 1fr; /* change down to 3 icons per row  on mobile */
+        margin-top: 20px;
+        }
+    /*app descriptions displayed on mobile via touch on title to expand*/
+    .clickableTitle {
+        left: 10px;
+        right: 10px;
+        }
+    /* App list icon display settings, on white circles with dark blue border */
+    ul.app-list li a{
+        display: block;
+        text-align: center;
+        background-color: white;
+        width: 68px;
+        height: 68px;
+        line-height: 60px;
+        border-radius: 34px;
+        border: 3px #2c3e50 solid; /* Cook Brothers Dark Blue Colour */
+        margin: 30px auto 12px auto;
+        padding: 0;
+    }
+    /* Centering icon images onto circles */
+    ul.app-list li a img{
+        vertical-align: middle;
+    }
+    /* App title settings */
+    .AppName {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0px;
+        padding-left: 10px;
+        padding-right: 10px;
+
+    }
+}
